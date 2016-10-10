@@ -77,3 +77,9 @@ form label {
   font-weight: bold;
   color: maroon;
 }
+
+.messages {
+  
+  color: red;
+  text-align: center;
+}
