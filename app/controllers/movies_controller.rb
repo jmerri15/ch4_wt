@@ -15,6 +15,10 @@ class MoviesController < ApplicationController
   #defaul:render 'new' template
   end
   
+    def  edit
+      @movie = Movie.find params[:id]
+    end
+  
    def create
     #@movie = Movie.create!(params[:movie]) #old way
     @movie = Movie.create!(movie_params)  # new way
@@ -30,6 +34,12 @@ class MoviesController < ApplicationController
     redirect_to movie_path(@movie)
    end
   
+  def destroy
+  @movie = Movie.find(params[:id])
+  @movie.destroy
+  flash[:notice] = "Movie '#{@movie.title}' deleted."
+  redirect_to movies_path
+  end
   
     private
 
